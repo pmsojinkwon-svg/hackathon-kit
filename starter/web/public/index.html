@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>서비스 이름</title>
+  <style>
+    :root { --bg:#fff; --fg:#1a1a1a; --muted:#6b6b6b; --line:#e5e5e5; --accent:#2563eb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; background:var(--bg); color:var(--fg); }
+    header { padding:20px 24px; border-bottom:1px solid var(--line); }
+    header h1 { margin:0; font-size:20px; }
+    header p { margin:4px 0 0; color:var(--muted); font-size:14px; }
+    main { max-width:720px; margin:0 auto; padding:24px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px; }
+    form { display:flex; gap:8px; }
+    input { flex:1; padding:10px; border:1px solid var(--line); border-radius:6px; font-size:15px; }
+    button { padding:10px 16px; border:0; border-radius:6px; background:var(--accent); color:#fff; font-size:15px; cursor:pointer; }
+    ul { list-style:none; padding:0; margin:0; }
+    li { padding:10px 0; border-bottom:1px solid var(--line); }
+    li:last-child { border-bottom:0; }
+    .empty { color:var(--muted); }
+    .status { font-size:13px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>서비스 이름</h1>
+    <p>한 줄 설명 — 이 화면이 누구의 어떤 문제를 푸는지</p>
+  </header>
+  <main>
+    <div class="card">
+      <form id="form">
+        <input id="text" placeholder="입력" autocomplete="off" />
+        <button type="submit">추가</button>
+      </form>
+    </div>
+    <div class="card">
+      <ul id="list"><li class="empty">아직 없음</li></ul>
+    </div>
+    <p class="status" id="status">서버 연결 확인 중…</p>
+  </main>
+
+  <script>
+    // 핵심만: 목록 불러오기 / 추가하기. 필요 없으면 통째로 바꿔도 됨.
+    const $ = (s) => document.querySelector(s);
+
+    async function load() {
+      const res = await fetch("/api/items");
+      const items = await res.json();
+      const ul = $("#list");
+      ul.innerHTML = items.length ? "" : '<li class="empty">아직 없음</li>';
+      for (const it of items) {
+        const li = document.createElement("li");
+        li.textContent = it.text;
+        ul.appendChild(li);
+      }
+    }
+
+    $("#form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = $("#text").value.trim();
+      if (!text) return;
+      await fetch("/api/items", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }) });
+      $("#text").value = "";
+      load();
+    });
+
+    fetch("/api/health")
+      .then((r) => r.json())
+      .then(() => { $("#status").textContent = "서버 연결됨"; load(); })
+      .catch(() => { $("#status").textContent = "서버 연결 안 됨 — node server.js 실행했는지 확인"; });
+  </script>
+</body>
+</html>
