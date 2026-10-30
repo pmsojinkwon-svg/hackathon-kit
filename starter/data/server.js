@@ -109,4 +109,15 @@ const server = http.createServer((req, res) => {
   res.end(HTML);
 });
 
-server.listen(PORT, "0.0.0.0", () => console.log(`listening on 0.0.0.0:${PORT} (data: ${DATA_FILE})`));
+// 포트가 이미 쓰이고 있으면 다음 번호로 자동 이동. 터미널 메시지의 번호를 Browser 미리보기에 넣는다.
+function listen(port) {
+  server.once("error", (err) => {
+    if (err.code === "EADDRINUSE" && port < Number(PORT) + 10) {
+      console.log(`port ${port} in use, trying ${port + 1}`);
+      listen(port + 1);
+    } else throw err;
+  });
+  server.listen(port, "0.0.0.0");
+}
+server.on("listening", () => console.log(`listening on 0.0.0.0:${server.address().port} (data: ${DATA_FILE})`));
+listen(Number(PORT));

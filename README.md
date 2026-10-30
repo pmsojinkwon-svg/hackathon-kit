@@ -31,6 +31,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 | `docs/TEST_LOG.md` | 뭘 어떻게 확인했나 | Codex + 나 |
 | `docs/HANDOFF.md` | 현재 상태·남은 일 (다음 사람용) | Codex + 나 |
 | `docs/QUESTIONS.md` | 서술형 질문 뱅크 22개 + 답변 틀 (연습용) | 나 |
+| `docs/NOTES.md` | 시험 중 내 메모장 (PLAN 요약, 서술형 답 3개). 종이 대신 | 나 |
 | `.agents/skills/kickoff/` | 시작 10분: README 분석 → 질문 목록 → PLAN 초안 | Codex |
 | `.agents/skills/verify/` | 성공 기준 하나씩 확인 → TEST_LOG 기록 | Codex |
 | `.agents/skills/trim/` | 과한 기능 찾아 제거 제안 | Codex |
@@ -74,7 +75,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 
 ```bash
 git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit
-cp kit/AGENTS.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
+cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
 node server.js                   # → "listening on 0.0.0.0:3000"
 ```
 (데이터 표시 과제면 `web` 대신 `data`)
