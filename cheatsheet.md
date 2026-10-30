@@ -36,6 +36,10 @@ cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts .
 - Codex에게 "서버 켜줘" → 터미널의 `listening on 0.0.0.0:NNNN` 숫자를 Browser 미리보기 PORT에 → 빈 화면 뜨면 OK
 - Codex에게 **"지금 적용 중인 AGENTS.md 규칙을 3줄로 요약해줘"** → 요약 나오면 규칙 먹힌 것
 
+**시작 코드에 뭐가 있나 (3줄):** `server.js` = 서버 (켜면 화면 보여줌 + 작은 예시 API `/api/items` 하나) / `public/index.html` = 화면 한 장 (입력칸 + 목록 예시) / `scripts/check.sh` = 서버 살아있나 확인. 예시 기능은 과제에 안 맞으면 Codex에게 "빼줘"라고 하면 됨.
+
+**모르는 단어·파일 이름이 나오면 한 마디:** "그게 뭐야? 한 줄로." / "지금 있는 거야, 새로 만드는 거야?" — 묻는 건 감점이 아니라 의도 점수.
+
 **화면 구역 (가이드 3번):** 왼쪽 = 도구(파일 목록·Browser·MCP) / 가운데 = 에디터(파일 열어 읽고 쓰는 곳, 탭) / 아래 = 터미널 / 오른쪽 = 채팅(담당자·Cofa Helper)
 
 **⛔ `claude`는 절대 치지 않는다.** 체험 때 쳤더니 `401 gateway_token_invalid · Retrying`만 반복됐음 (Claude Code는 이 시험에서 차단). 체험 안내 카드에 "claude 입력해 보세요"가 떠도 무시. **AI는 `codex` 하나.** 모델 표시는 `GPT-6.1-Sol default`면 정상.
