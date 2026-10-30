@@ -24,6 +24,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 | 경로 | 뭔지 | 누가 읽나 |
 |---|---|---|
 | `README.md` | 전체 그림 + 용어 사전 | 나 |
+| `INSTALL.md` | 설치 절차. Codex가 읽고 실행 | Codex |
 | `cheatsheet.md` | 시험 중 보는 종이 | 나 |
 | `AGENTS.md` | Codex가 자동으로 읽는 작업 규칙 7개 | Codex (나도 알아야 함) |
 | `docs/PLAN.md` | 문제·성공 기준·범위 (구현 전에 채움) | Codex + 나 |
@@ -73,10 +74,16 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 
 ## 5. 시험장에서 1분 안에 적용하기
 
+터미널에서 `codex` 켜고:
+```
+github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고, 그 안의 INSTALL.md를 읽고 그대로 설치해줘.
+```
+→ 끝나면 `/quit` → `codex` → `/skills`로 5개 확인. (설치 절차는 `INSTALL.md`에 Codex가 읽을 수 있게 적혀 있음)
+
+직접 할 때:
 ```bash
 git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit
 cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
-node server.js                   # → "listening on 0.0.0.0:3000"
 ```
 (데이터 표시 과제면 `web` 대신 `data`)
 

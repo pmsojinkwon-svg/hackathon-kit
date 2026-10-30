@@ -7,30 +7,36 @@
 
 ## 0. 시작 직후 1분 — 키트 가져오기
 
-터미널에 아래 네 줄을 **한 줄씩** 복사해서 친다.
+**외울 건 세 개:** ① `codex` ② 주소 `github.com/pmsojinkwon-svg/hackathon-kit` ③ "INSTALL.md대로 설치해줘"
 
-```bash
+터미널에:
+```
+codex
+```
+프롬프트가 `›`로 바뀌면 (이제부터 한국어), 이렇게 친다:
+```
+github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고, 그 안의 INSTALL.md를 읽고 그대로 설치해줘.
+```
+승인 창 뜰 때마다 **승인**. Codex가 "설치 끝" 하면:
+```
+/quit
+codex
+/skills
+```
+`/skills`에 kickoff·verify·trim·review·handoff 5개 보이면 성공. (Codex는 켤 때만 AGENTS.md를 읽어서 한 번 껐다 켜야 함)
+
+**실패하면 (Codex가 못 하면)** 터미널에서 `/quit` 후 직접 두 줄:
+```
 git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit
 cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
-node server.js
 ```
 
-| 줄 | 뜻 |
-|---|---|
-| 1 | GitHub에서 키트를 `kit` 폴더로 가져옴 |
-| 2 | 규칙·**이 cheatsheet**·양식·스킬(`.agents/skills/`)·확인스크립트·웹앱 시작 코드를 작업 폴더로 복사하고 `kit` 폴더는 지움 (데이터 표시 과제면 `web` 대신 `data`) |
-| 3 | 서버 켬. `listening on 0.0.0.0:3000` 뜨면 성공 |
-
-**3번은 새 터미널 탭에서 치고, 그 탭은 끝까지 닫지 않는다.** (닫으면 서버 꺼짐)
-**Codex가 서버를 켤 때 "승인할까요?" 창이 뜰 수 있다** (다른 응시자 체험 보고). 매번 승인 누르면 됨.
-
 그다음:
-- **왼쪽 파일 목록에서 `cheatsheet.md`와 `docs/NOTES.md`를 각각 더블클릭** → 가운데 에디터(메모장 같은 영역)에 탭으로 열림. 시험 내내 이 두 탭은 안 닫음. **더블클릭**이어야 다른 파일 열 때 탭이 안 바뀜. (외부 브라우저·다른 탭 금지라 GitHub에서는 못 봄. 종이 메모도 "허용된 준비물"에 없으니 안 씀 — 메모는 전부 NOTES.md에 타이핑)
+- 왼쪽 파일 목록에서 `cheatsheet.md`와 `docs/NOTES.md`를 각각 **더블클릭** → 가운데 에디터 탭으로 고정. 시험 내내 안 닫음
+- Codex에게 "서버 켜줘" → 터미널의 `listening on 0.0.0.0:NNNN` 숫자를 Browser 미리보기 PORT에 → 빈 화면 뜨면 OK
+- Codex에게 **"지금 적용 중인 AGENTS.md 규칙을 3줄로 요약해줘"** → 요약 나오면 규칙 먹힌 것
 
 **화면 구역 (가이드 3번):** 왼쪽 = 도구(파일 목록·Browser·MCP) / 가운데 = 에디터(파일 열어 읽고 쓰는 곳, 탭) / 아래 = 터미널 / 오른쪽 = 채팅(담당자·Cofa Helper)
-- Browser 미리보기 → PORT 입력(터미널의 `listening on 0.0.0.0:NNNN` 숫자), 경로 `/` → 빈 화면 뜨면 OK. 서버가 아직 안 켜졌으면 "포트 N에 아직 응답하는 서버가 없어요"가 뜨고, 켜지면 **자동으로** 열림
-- 다른 터미널 탭에서 `codex` 입력 → `/status` 쳐서 모델 확인 → `/skills` 쳐서 kickoff·verify·trim·review·handoff 5개 보이는지 확인 (안 보이면 `/quit` 후 `codex` 다시)
-- Codex에게 **"지금 적용 중인 AGENTS.md 규칙을 3줄로 요약해줘"** → 요약이 나오면 규칙이 먹힌 것
 
 **⛔ `claude`는 절대 치지 않는다.** 체험 때 쳤더니 `401 gateway_token_invalid · Retrying`만 반복됐음 (Claude Code는 이 시험에서 차단). 체험 안내 카드에 "claude 입력해 보세요"가 떠도 무시. **AI는 `codex` 하나.** 모델 표시는 `GPT-6.1-Sol default`면 정상.
 
@@ -38,8 +44,8 @@ node server.js
 
 | 언제 | 터미널에 | 뜻 |
 |---|---|---|
-| 10:00 | 위 1·2번 줄 | 키트 가져와 풀기 (Codex에게 시켜도 됨 — 체험 때 성공) |
-| 10:01 | `codex` | AI 켜기. **이 순간부터 그 창은 채팅창** |
+| 10:00 | `codex` | AI 켜기. **이 순간부터 그 창은 채팅창.** 설치는 Codex에게 시킴 |
+| 10:03 | `/quit` → `codex` → `/skills` | 규칙·스킬 인식시키기 |
 | 12:10 | 새 탭에서 `codex` | 리뷰용 두 번째 AI |
 
 서버 켜기·check.sh·커밋은 전부 Codex에게 "서버 켜줘", "scripts/check.sh 실행해줘"로 시킨다.
