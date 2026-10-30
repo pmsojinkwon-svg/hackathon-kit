@@ -12,7 +12,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 | 1 | 이 README | 전체 그림 + 용어 사전 | 5분 |
 | 2 | `cheatsheet.md` | **시험 날 내가 보는 종이.** 시간표, 담당자 질문, 서술형 답변 공식 | 5분 |
 | 3 | `AGENTS.md` | Codex에게 주는 규칙 7개 | 3분 |
-| 4 | `skills/` 5개 | Codex에게 "이 설명서대로 해"라고 시키는 반복 작업 | 5분 |
+| 4 | `.agents/skills/` 5개 | Codex에게 "이 설명서대로 해"라고 시키는 반복 작업 | 5분 |
 | 5 | `docs/` 4개 | 시험 중 채울 빈 양식 | 2분 |
 
 `starter/`(시작 코드)와 `scripts/`(확인 스크립트)는 **안 읽어도 됨.** Codex가 다룸. 내가 알아야 할 건 "켜는 명령 한 줄"뿐이고 cheatsheet에 있음.
@@ -30,11 +30,12 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 | `docs/DECISIONS.md` | 선택·이유·대안·바뀔 조건 (작업 중 계속 추가) | Codex + 나 |
 | `docs/TEST_LOG.md` | 뭘 어떻게 확인했나 | Codex + 나 |
 | `docs/HANDOFF.md` | 현재 상태·남은 일 (다음 사람용) | Codex + 나 |
-| `skills/kickoff/` | 시작 10분: README 분석 → 질문 목록 → PLAN 초안 | Codex |
-| `skills/verify/` | 성공 기준 하나씩 확인 → TEST_LOG 기록 | Codex |
-| `skills/trim/` | 과한 기능 찾아 제거 제안 | Codex |
-| `skills/review/` | 새 세션이 처음 보는 눈으로 검토 | Codex (새 세션) |
-| `skills/handoff/` | HANDOFF.md 작성 | Codex |
+| `docs/QUESTIONS.md` | 서술형 질문 뱅크 22개 + 답변 틀 (연습용) | 나 |
+| `.agents/skills/kickoff/` | 시작 10분: README 분석 → 질문 목록 → PLAN 초안 | Codex |
+| `.agents/skills/verify/` | 성공 기준 하나씩 확인 → TEST_LOG 기록 | Codex |
+| `.agents/skills/trim/` | 과한 기능 찾아 제거 제안 | Codex |
+| `.agents/skills/review/` | 새 세션이 처음 보는 눈으로 검토 | Codex (새 세션) |
+| `.agents/skills/handoff/` | HANDOFF.md 작성 | Codex |
 | `starter/web/` | 웹앱 시작 코드 (서버 + 화면 1장, 설치 불필요) | Codex |
 | `starter/data/` | CSV 읽어 표로 보여주는 시작 코드 | Codex |
 | `scripts/check.sh` | 서버 살아있나 한 줄 확인 | 나 (명령 한 줄) |
@@ -52,11 +53,11 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 
 | 단계 | 쓰는 것 |
 |---|---|
-| 읽기·묻기 | `skills/kickoff` → 질문 목록을 뽑아줌 |
+| 읽기·묻기 | `$kickoff` → 질문 목록을 뽑아줌 |
 | 적기 | `docs/PLAN.md` |
 | 만들기 | `AGENTS.md` 규칙대로 Codex가 작업. 결정은 `docs/DECISIONS.md`에 쌓임 |
-| 확인 | `skills/verify`, `skills/review`, `skills/trim` |
-| 정리 | `skills/handoff` → `docs/HANDOFF.md` |
+| 확인 | `$verify`, `$review`, `$trim` |
+| 정리 | `$handoff` → `docs/HANDOFF.md` |
 | 6문제 | `docs/DECISIONS.md`에 쌓인 걸 머릿속에서 꺼내 답함 (cheatsheet 4번 공식) |
 
 ---
@@ -73,15 +74,14 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 
 ```bash
 git clone https://github.com/pmsojinkwon/hackathon-kit.git kit
-cp kit/AGENTS.md . && cp -r kit/docs kit/skills kit/scripts .
-cp -r kit/starter/web/* .        # 데이터 표시 과제면 web 대신 data
+cp kit/AGENTS.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
 node server.js                   # → "listening on 0.0.0.0:3000"
 ```
+(데이터 표시 과제면 `web` 대신 `data`)
 
 Browser 미리보기에 PORT `3000`, 경로 `/` → 빈 화면이 뜨면 준비 끝.
 
-**스킬 부르는 법:** Codex 입력란에 `skills/kickoff/SKILL.md 읽고 그대로 진행해줘`
-(환경이 스킬 폴더를 자동 인식하면 `$kickoff` 같은 짧은 호출도 가능 — 사전 체험 때 Cofa Helper에게 확인)
+**스킬 부르는 법:** 스킬은 `.agents/skills/` 안에 있고, Codex가 이 위치를 자동 인식함(다른 응시자 체험 보고). Codex에서 `/skills`로 목록 확인, `$kickoff`처럼 부름. 이미 켜진 세션은 `/quit` 후 재시작해야 인식. 안 되면 `.agents/skills/kickoff/SKILL.md 읽고 진행해줘`로 파일 지정.
 
 ---
 

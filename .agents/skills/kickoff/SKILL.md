@@ -6,7 +6,7 @@ description: 과제 시작 직후 README를 분석해 질문 목록과 PLAN 초�
 # kickoff — 시작 10분
 
 > **언제:** 과제 시작 직후, README를 내가 한 번 읽은 다음.
-> **부르는 법:** Codex에게 `skills/kickoff/SKILL.md 읽고 그대로 진행해줘`
+> **부르는 법:** Codex에게 `$kickoff` (안 되면 `.agents/skills/kickoff/SKILL.md 읽고 그대로 진행해줘`)
 > **핵심:** 코드는 한 줄도 쓰지 않는다. 읽고 → 묻고 → 적는다.
 
 ---
