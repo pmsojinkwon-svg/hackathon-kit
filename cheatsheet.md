@@ -234,6 +234,19 @@ cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts .
 
 Codex가 "이거 해도 될까요?" 하고 멈추면 → 내가 **승인/거절** 눌러야 진행됨. 기다리기만 하면 안 움직임.
 
+**승인 창 = "이 명령 실행해도 돼요?"** 명령 전체를 읽지 말고 **맨 앞 단어만** 본다. 99%는 승인.
+
+| 맨 앞 단어 | 뜻 | 할 것 |
+|---|---|---|
+| `ls` `cat` `curl localhost` `pwd` `git log` `node --version` | 보기만. 아무것도 안 바뀜 | 승인 |
+| `node server.js` `bash scripts/check.sh` | 서버 켜기·확인 | 승인 |
+| `git add` `git commit` | 저장 지점 | 승인 |
+| `cp` `mv` `mkdir` | 복사·이동·폴더 | 승인 |
+| `rm` | **삭제** — 뭘 지우나 한 번 보기 | 내 파일·키트 원본이면 승인. **README.md·과제 데이터면 거절** |
+| `npm install` `pip` | 외부 설치 | 거절 (안 되고 시간만 씀) |
+| `git push` | 외부 전송 = **금지** | 거절 |
+| `curl https://…` (localhost 아닌 주소) | 외부 접속 | 거절 |
+
 **AGENTS.md는 Codex가 자동으로 읽지만, 100% 지키진 않는다.** 작업이 길어지면 슬쩍 어긴다. 내 일은 규칙을 매번 말하는 게 아니라 **어겼을 때 잡아주는 것.** 그 개입이 대화 기록에 남고 = 의도 점수. 즉 Codex가 어기는 건 내가 점수 딸 기회.
 
 **어떤 규칙을 어겼는지 내가 파악할 필요 없다.** Codex가 모든 답변 끝에 자기 점검을 세로로 붙인다:
