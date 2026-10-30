@@ -21,6 +21,9 @@
 5. `ls -a`를 실행해 결과를 보여준다. 최상위에 `AGENTS.md`, `cheatsheet.md`, `docs/`, `.agents/`, `scripts/`, `server.js`, `public/`, 그리고 원래 있던 `README.md`가 보여야 한다.
 6. 사용자에게 한 줄로 알린다: **"설치 끝. AGENTS.md와 스킬을 인식시키려면 `/quit` 후 `codex`를 다시 켜고 `/skills`로 확인하세요."**
 
+## Codex도 못 할 때 (수동 대체)
+사용자가 터미널에서 직접: 아래 한 줄. 그래도 안 되면 최소한 `AGENTS.md`와 `.agents/` 폴더만이라도 최상위에 복사하면 규칙과 스킬은 동작한다.
+
 ## 한 줄 명령 (셸에서 직접 할 때)
 ```bash
 cp KIT/AGENTS.md KIT/cheatsheet.md . && cp -r KIT/docs KIT/.agents KIT/scripts . && cp -r KIT/starter/web/* . && rm -rf KIT

@@ -32,6 +32,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 | `docs/TEST_LOG.md` | 뭘 어떻게 확인했나 | Codex + 나 |
 | `docs/HANDOFF.md` | 현재 상태·남은 일 (다음 사람용) | Codex + 나 |
 | `docs/QUESTIONS.md` | 서술형 질문 뱅크 22개 + 답변 틀 (연습용) | 나 |
+| `docs/EMERGENCY.md` | 막혔을 때 Codex에게 말할 문장 6개 | 나 → Codex |
 | `docs/NOTES.md` | 시험 중 내 메모장 (PLAN 요약, 서술형 답 3개). 종이 대신 | 나 |
 | `.agents/skills/kickoff/` | 시작 10분: README 분석 → 질문 목록 → PLAN 초안 | Codex |
 | `.agents/skills/verify/` | 성공 기준 하나씩 확인 → TEST_LOG 기록 | Codex |
