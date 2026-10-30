@@ -50,9 +50,20 @@ cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts .
 |---|---|---|
 | 10:00 | `codex` | AI 켜기. **이 순간부터 그 창은 채팅창.** 설치는 Codex에게 시킴 |
 | 10:03 | `/quit` → `codex` → `/skills` | 규칙·스킬 인식시키기 |
+| 코드 고칠 때마다 | 탭 2: `Ctrl+C` → `↑` → `Enter` | 서버 껐다 켜기 (아래 표) |
 | 12:10 | 새 탭에서 `codex` | 리뷰용 두 번째 AI |
 
-서버 켜기·check.sh·커밋은 전부 Codex에게 "서버 켜줘", "scripts/check.sh 실행해줘"로 시킨다.
+check.sh·커밋은 Codex에게 "scripts/check.sh 실행해줘", "커밋해"로 시킨다.
+
+**서버는 내가 켠다 — 터미널 탭 2개.** 탭 1 = `codex` 채팅. 탭 2 = 서버 전용.
+| 할 일 | 탭 2에서 | 왜 |
+|---|---|---|
+| 켜기 | `node server.js` | Codex가 켠 서버는 Codex가 못 끄는 일이 생김 (모의 때 15분 날림) |
+| 끄기 | 그 탭 클릭 → **Ctrl+C** | 코드를 고쳤으면 서버를 껐다 켜야 새 코드가 돌아감 |
+| 다시 켜기 | **↑ (위 화살표) → Enter** | 방금 친 명령이 다시 나옴 |
+| 그 다음 Codex에게 | "서버 다시 켰어, 포트 NNNN. curl로 확인해" | Codex는 고치기·curl만 |
+
+외울 건 **Ctrl+C · ↑ · Enter** 셋. Codex가 "포트 사용 중", "서버를 못 끕니다"라고 하면 = 탭 2 가서 Ctrl+C.
 **포트는 터미널 메시지를 본다.** 3000이 이미 쓰이고 있으면 서버가 3001, 3002로 자동으로 옮겨감 (체험 때 3000이 막혀 있었음). `listening on 0.0.0.0:NNNN`의 NNNN을 Browser 미리보기 PORT에 넣는다.
 
 **GitHub clone이 안 될 때 (비상):** 개인 PC 파일은 못 올리니 **아래 7줄을 Codex에게 직접 타이핑**한다. 2분.
