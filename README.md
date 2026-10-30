@@ -73,7 +73,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 ## 5. 시험장에서 1분 안에 적용하기
 
 ```bash
-git clone https://github.com/pmsojinkwon/hackathon-kit.git kit
+git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit
 cp kit/AGENTS.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
 node server.js                   # → "listening on 0.0.0.0:3000"
 ```

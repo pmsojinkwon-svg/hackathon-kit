@@ -10,7 +10,7 @@
 터미널에 아래 네 줄을 **한 줄씩** 복사해서 친다.
 
 ```bash
-git clone https://github.com/pmsojinkwon/hackathon-kit.git kit
+git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit
 cp kit/AGENTS.md . && cp -r kit/docs kit/.agents kit/scripts . && cp -r kit/starter/web/* . && rm -rf kit
 node server.js
 ```
@@ -42,7 +42,7 @@ node server.js
 |---|---|---|---|
 | 1 | 접속 → 동의 → 웹캠 → 전체화면 공유 → Proctor 앱 연결 → 거치 구도 | ✓ | 어디서 막혔는지 메모, 문의 버튼 |
 | 2 | 터미널: `node --version`, `git --version` | ✓ | Node 없으면 Claude에게 즉시 말함 |
-| 3 | `git clone https://github.com/pmsojinkwon/hackathon-kit.git kit` | ✓ | **비상 7줄 타이핑** 방식으로 전환 (0번 참고) |
+| 3 | `git clone https://github.com/pmsojinkwon-svg/hackathon-kit.git kit` | ✓ | **비상 7줄 타이핑** 방식으로 전환 (0번 참고) |
 | 4 | 0번 명령 2줄 실행 → `/skills`에 5개 보이나 | ✓ | `.agents/skills/kickoff/SKILL.md 읽고` 방식 |
 | 5 | Codex에게 "적용 중인 AGENTS.md 규칙 3줄 요약" | 요약 나옴 | 규칙 안 먹힘 → 첫 프롬프트에 "AGENTS.md 읽고 시작해" 추가 |
 | 6 | `node server.js` → 승인 창 뜨나 → Browser 미리보기 PORT 3000에 화면 뜨나 | ✓ | 0.0.0.0 바인딩 확인, PORT 숫자 확인 |
