@@ -15,7 +15,7 @@ codex
 ```
 프롬프트가 `›`로 바뀌면 (이제부터 한국어), 이렇게 친다:
 ```
-github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고, 그 안의 INSTALL.md를 읽고 그대로 설치해줘.
+github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고 INSTALL.md대로 끝까지 설치해줘. 웹앱용으로, 같은 이름 파일은 덮어써도 되고 키트 폴더 삭제도 돼. 중간에 묻지 마. /quit은 내가 해.
 ```
 승인 창 뜰 때마다 **승인**. Codex가 "설치 끝" 하면:
 ```

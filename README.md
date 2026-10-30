@@ -77,7 +77,7 @@ AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI�
 
 터미널에서 `codex` 켜고:
 ```
-github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고, 그 안의 INSTALL.md를 읽고 그대로 설치해줘.
+github.com/pmsojinkwon-svg/hackathon-kit 를 clone하고 INSTALL.md대로 끝까지 설치해줘. 웹앱용으로, 같은 이름 파일은 덮어써도 되고 키트 폴더 삭제도 돼. 중간에 묻지 마. /quit은 내가 해.
 ```
 → 끝나면 `/quit` → `codex` → `/skills`로 5개 확인. (설치 절차는 `INSTALL.md`에 Codex가 읽을 수 있게 적혀 있음)
 
