@@ -33,7 +33,9 @@ cp kit/AGENTS.md kit/cheatsheet.md . && cp -r kit/docs kit/.agents kit/scripts .
 
 그다음:
 - 왼쪽 파일 목록에서 `cheatsheet.md`와 `docs/NOTES.md`를 각각 **더블클릭** → 가운데 에디터 탭으로 고정. 시험 내내 안 닫음
-- Codex에게 "서버 켜줘" → 터미널의 `listening on 0.0.0.0:NNNN` 숫자를 Browser 미리보기 PORT에 → 빈 화면 뜨면 OK
+- **서버는 내가 직접 켠다 (Codex에게 안 시킴):** 터미널 **+ 로 탭 2** 열고 `node server.js` → `listening on 0.0.0.0:NNNN` 숫자를 왼쪽 Browser PORT에 → ↻ → 빈 화면 뜨면 OK. 탭 1의 Codex는 그대로 둠.
+  - 왜 내가: Codex가 켠 서버는 Codex도 나도 못 끄는 일이 생김 (모의 때 15분 날림)
+  - html만 고쳤으면 Browser ↻만. **server.js를 고쳤으면** 탭 2 클릭 → Ctrl+C → ↑ → Enter
 - Codex에게 **"지금 적용 중인 AGENTS.md 규칙을 3줄로 요약해줘"** → 요약 나오면 규칙 먹힌 것
 
 **시작 코드에 뭐가 있나 (3줄):** `server.js` = 서버 (켜면 화면 보여줌 + 작은 예시 API `/api/items` 하나) / `public/index.html` = 화면 한 장 (입력칸 + 목록 예시) / `scripts/check.sh` = 서버 살아있나 확인. 예시 기능은 과제에 안 맞으면 Codex에게 "빼줘"라고 하면 됨.
