@@ -1,5 +1,9 @@
 # hackathon-kit
 
+> **시험장에서 칠 한 문장** (터미널에 `codex` 친 다음):
+> `github.com/pmsojinkwon-svg/hackathon-kit clone하고 INSTALL.md대로 설치해줘`
+> 끝나면 `/quit` → `codex` → `/skills`
+
 **시험장에 들고 들어가는 "내 작업 방식" 한 세트.**
 AI 개발자(Codex)에게 줄 규칙서 1장, 내가 채울 빈 양식 4장, AI에게 시킬 반복 작업 설명서 5장, 켜자마자 화면이 뜨는 시작 코드 2벌, 시험 중 내가 보는 커닝페이퍼 1장.
 
